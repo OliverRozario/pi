@@ -12,4 +12,4 @@ else:
         discount = 0.2
 
 cost  = NumOfTickets * 20 * ( 1- discount)
-print(f"Your ticket cost {cost}")
+print(f"Your tickets cost {cost}")
