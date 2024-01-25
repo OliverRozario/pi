@@ -16,9 +16,12 @@ for test in range(1, 5):
             SubjectName = "IT"
     for StudentNumber in range(1, 601):
         while True:
-            Mark = int(input(f"Enter Student {StudentNumber}'s mark for {SubjectName}: "))
-            if Mark < 101 and Mark > -1:
-                break
+            try:
+                Mark = int(input(f"Enter Student {StudentNumber}'s mark for {SubjectName}: "))
+                if Mark < 101 and Mark > -1:
+                    break
+            except ValueError:
+                print("Invalid input. Please enter valid number")
         if Mark < OverallLowest:
             OverallLowest = Mark
         if Mark < SubjectLowest:
