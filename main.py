@@ -1,15 +1,40 @@
-while True:
-    NumOfTickets = int(input("How many would you like to buy?: "))
-    if NumOfTickets > 0 and NumOfTickets < 26:
-        break
-
-if NumOfTickets < 10:
-    discount = 0
-else:
-    if NumOfTickets < 20:
-        discount = 0.1
-    else:
-        discount = 0.2
-
-cost  = NumOfTickets * 20 * ( 1- discount)
-print(f"Your tickets cost {cost}")
+OverallHighest = 0
+OverallLowest = 100
+OverallTotal = 0
+for test in range(1, 5):
+    SubjectHighest = 0
+    SubjectLowest = 100
+    SubjectTotal = 0
+    match test:
+        case 1:
+            SubjectName = "Maths"
+        case 2:
+            SubjectName = "Science"
+        case 3:
+            SubjectName = "English"
+        case 4:
+            SubjectName = "IT"
+    for StudentNumber in range(1, 601):
+        while True:
+            Mark = int(input(f"Enter Student {StudentNumber}'s mark for {SubjectName}: "))
+            if Mark < 101 and Mark > -1:
+                break
+        if Mark < OverallLowest:
+            OverallLowest = Mark
+        if Mark < SubjectLowest:
+            SubjectLowest = Mark
+        if Mark > OverallHighest:
+            OverallHighest = Mark
+        if Mark > SubjectHighest:
+            SubjectHighest = Mark
+        OverallTotal = OverallTotal + Mark
+        SubjectTotal = SubjectTotal + Mark
+    SubjectAverage = SubjectTotal / 600
+    print(SubjectName)
+    print(f"Average is {SubjectName}")
+    print(f"Highest Mark is {SubjectHighest}")
+    print(f"Lowest Mark is {SubjectLowest}")
+OverallAverage = OverallHighest / 2400
+print(f"Overalll Average is {OverallAverage}")
+print(f"Overall Highest Mark is {OverallHighest}")
+print(f"Overall Lowest Mark is {OverallLowest}")
