@@ -18,7 +18,7 @@ for test in range(1, 5):
         while True:
             try:
                 Mark = int(input(f"Enter Student {StudentNumber}'s mark for {SubjectName}: "))
-                if Mark < 101 and Mark > -1:
+                if -1 < Mark < 101:
                     break
             except ValueError:
                 print("Invalid input. Please enter valid number")
